@@ -112,16 +112,77 @@ Do not commit `local.properties`, keystores, or signing passwords.
 
 ## Install
 
+### Install from a GitHub Release
+
+A signed, installable APK is published on GitHub Releases:
+
+**https://github.com/JohnSalazar/vera-downloader/releases/latest**
+
+Direct asset:
+
+**https://github.com/JohnSalazar/vera-downloader/releases/download/v1.0.0/vera-downloader-v1.0.0.apk**
+
+Release details:
+
+| Item | Value |
+|---|---|
+| Version | `1.0.0` |
+| File | `vera-downloader-v1.0.0.apk` |
+| Size | 12,285,101 bytes |
+| SHA-256 | `9A6C1890F4CCB9B0A9EBBDC63029114570279A763325514B08673A9A8DA48050` |
+| Minimum Android | 8.0 (API 26) |
+| Signing certificate SHA-256 | `71:A0:55:BC:BE:2C:8A:77:B4:BC:84:3C:04:5B:7C:59:F3:93:62:69:C0:94:EB:57:34:E5:B2:0C:21:06:5E:93` |
+
+#### Install on the phone
+
+1. Open the release link on the Android phone.
+2. Download `vera-downloader-v1.0.0.apk`.
+3. Open the downloaded file from **Files → Downloads**.
+4. If Android blocks it, allow **Install unknown apps** for the browser or file manager.
+5. Tap **Install**.
+6. If Play Protect shows a warning because the app was not installed from Play, choose
+   **Install anyway**. The APK is signed, but it is not distributed through Google Play.
+7. Open **Vera Downloader** and grant notification permission.
+
+The app has no account or login. It works immediately after installation.
+
+#### Verify the download (optional)
+
+On a computer with `sha256sum`:
+
 ```bash
-adb install -r app/build/outputs/apk/debug/app-debug.apk
+sha256sum vera-downloader-v1.0.0.apk
+```
+
+The output must be:
+
+```
+9a6c1890f4ccb9b0a9ebbdc63029114570279a763325514b08673a9a8da48050
+```
+
+#### Install with ADB
+
+```bash
+adb install -r vera-downloader-v1.0.0.apk
 adb shell am start -n com.vera.downloader/.MainActivity
 ```
 
-Or copy the APK to the phone and open it from Files/Downloads, allowing install from that
-file manager if Android asks.
+If an older debug build is installed with a different signing key, uninstall it first:
 
-The debug APK is for testing. Publish a signed release through Google Play for normal
-distribution and in-app updates.
+```bash
+adb uninstall com.vera.downloader
+adb install vera-downloader-v1.0.0.apk
+```
+
+Uninstalling removes local history and settings but not files already saved in the gallery.
+
+#### Updating a GitHub release install
+
+Download and install a newer APK over the existing app. Future releases must be signed with
+the same key; otherwise Android requires an uninstall first. The in-app **Check for updates**
+action uses Google Play and only works for a Play Store installation.
+
+### Install a local build with ADB
 
 ## How to use
 

@@ -54,7 +54,7 @@ may return only a preview or an explanatory error.
 
 ## Screenshots
 
-All screenshots use fictitious demo content.
+Fictitious UI mockups with demo content. No real accounts, links, or media are shown.
 
 | Home | Preview |
 |---|---|
@@ -284,6 +284,10 @@ Vera Downloader has no analytics, ads, or tracking SDKs. It does not upload down
 to a server. History and settings are stored locally (`vera.db` and SharedPreferences).
 Feedback is sent only through the user's email app. The project does not include the original
 analyzed app's code, assets, models, or audio.
+
+The YouTube parser contains YouTube's **public InnerTube web client key**. It is a public
+client identifier used by the web player, not a private credential or user secret. No private
+API keys, signing keys, access tokens, or passwords are committed.
 
 Clearing app data removes local history and settings. Downloaded files remain in the gallery
 until deleted.

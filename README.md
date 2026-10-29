@@ -395,6 +395,15 @@ adb shell content query --uri content://media/external/video/media \
   platforms.
 - Vera Downloader is an independent project, not endorsed by or affiliated with any platform.
 
+## Support
+
+For questions, bug reports, feature requests, or security concerns, contact:
+
+**support@veradownloader.com**
+
+Please include the Android version, device model, the source link (if public), and the exact
+error message shown in the app.
+
 ## License
 
 MIT License. See [LICENSE](LICENSE).
